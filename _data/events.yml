@@ -1,0 +1,23 @@
+- title: "Opening Night: Community Arts Showcase"
+  date: 2026-09-12
+  time: "6:30 PM"
+  location: "Downtown Arts Hall"
+  category: "Exhibition"
+  description: "A community-led opening night featuring local artists, student work, and live music from neighborhood performers."
+  link: "/about"
+
+- title: "Artist Mixer & Networking Social"
+  date: 2026-09-26
+  time: "5:30 PM"
+  location: "Riverside Studio Loft"
+  category: "Networking"
+  description: "An informal gathering to connect visual artists, performers, and community partners for collaboration opportunities."
+  link: "/about"
+
+- title: "Youth Arts Workshops"
+  date: 2026-10-10
+  time: "10:00 AM"
+  location: "Griffin Arts Center"
+  category: "Workshop"
+  description: "Hands-on youth sessions in drawing, design, and mixed media led by local teaching artists."
+  link: "/about"

@@ -1,0 +1,29 @@
+{% if page.url contains '404' or page.url contains 'subscribed' %}
+{% else %}
+<!-- begin subscribe -->
+<section class="subscribe section">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+
+        <div class="subscribe__inner">
+          <div class="subscribe__info">
+            <h3 class="subscribe__title">{{ site.data.settings.mailchimp__settings.mailchimp__title }}</h3>
+            <p class="subscribe__subtitle">{{ site.data.settings.mailchimp__settings.mailchimp__text }}</p>
+          </div>
+
+          <form class="subscribe-form" method="POST" action="https://0363cd8a.sibforms.com/serve/MUIFAEzxhDVxwj3Sf1ReXD2gEudAOQbEx_9HVYZ124lQhcSoA5JKfc63Ez40fnDUnia05_Aj2-fCvhXy74n2YAWQ3FZz41Lm9WY1PHRsMD4t9RfiqSKov3mNFDe99GqDogEm4kA_UmAw2F7Y6sVSzs999KTXVd1RN1AqyHtaWDdm-WQTOmT4Vd9MVFe-DtcC1le7w5ayTQthEX9ClA==" data-type="subscription">
+            <label class="screen-reader-text" for="EMAIL">Email address</label>
+            <input class="subscribe-email" id="EMAIL" type="email" name="EMAIL" autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Your email address…" required>
+            <input type="text" name="email_address_check" value="" style="display:none">
+            <input type="hidden" name="locale" value="en">
+            <button class="button button--big subscribe-button" type="submit">{{ site.data.settings.mailchimp__settings.mailchimp__button__text }}</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end subscribe -->
+{% endif %}

@@ -1,0 +1,404 @@
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: auto;
+  background: transparent;
+  // backdrop-filter is intentionally excluded here: it must switch
+  // instantly (see .menu-open below) rather than animate, otherwise
+  // the fixed-position mobile nav stays trapped in the header's
+  // containing block for the duration of the transition.
+  transition: background-color .35s, box-shadow .35s;
+
+  &.is-scrolled {
+    background: rgba($white, 0.96);
+    box-shadow: 0 2px 12px var(--color-divider);
+    backdrop-filter: blur(6px);
+  }
+
+  // backdrop-filter creates a new containing block for fixed-position
+  // descendants, which traps the full-screen mobile nav overlay inside
+  // the header instead of the viewport. Drop the filter while the
+  // mobile menu is open.
+  &.menu-open {
+    backdrop-filter: none;
+  }
+}
+
+.header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px $base-spacing-unit;
+  min-height: 80px;
+
+  @media only screen and (max-width: $mobile) {
+    padding: 16px $base-spacing-unit;
+  }
+}
+
+/* Logo */
+.logo__link {
+  font-family: $heading-font-family;
+  font-size: 24px;
+  line-height: 26px;
+  font-weight: 900;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.logo__image {
+  display: block;
+  height: 64px;
+  width: auto;
+}
+
+.logo__image--dark {
+  display: none;
+}
+
+/* Nav */
+.main-nav {
+  margin-left: auto;
+
+  @media only screen and (max-width: $desktop) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    overflow: auto;
+    background: $background-color-alt;
+    transition: all .25s ease;
+
+    &.is-open {
+      z-index: 999;
+      opacity: 1;
+      transition: all .25s ease;
+    }
+
+    .nav__list {
+      width: 100%;
+      max-width: 360px;
+      padding-left: 40px;
+
+      .nav__item {
+        display: block;
+        margin: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .dropdown-menu {
+          position: relative;
+          left: 0;
+          padding: 0;
+          opacity: 1;
+          visibility: visible;
+          transform: scale(1);
+          box-shadow: none;
+
+          .nav__link {
+            margin-left: 8px;
+            margin-bottom: 16px;
+            font-size: 15px;
+
+            &::before {
+              content: "– ";
+            }
+
+            &:last-child {
+              margin-bottom: 24px;
+            }
+
+            &[hidden] {
+              display: none;
+            }
+          }
+        }
+
+        .nav__link {
+          display: block;
+          padding: 0;
+          margin-bottom: 24px;
+          font-size: 18px;
+          font-weight: 800;
+
+          &:hover {
+            background-color: inherit;
+          }
+
+          .arrow-down {
+            display: none;
+          }
+
+          &.active-link {
+            color: $primary-color;
+
+            &::after {
+              content: none;
+            }
+          }
+
+          &.cta-button {
+            margin-left: -4px;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-nav__box {
+  display: flex;
+  align-items: center;
+
+  .nav__icon-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba($primary-color, 0.08);
+
+    &:hover {
+      .fa-xmark {
+        transform: rotate(90deg);
+      }
+    }
+
+    .fa-xmark {
+      color: $primary-color;
+      transition: $global-transition;
+    }
+  }
+
+  .nav__title {
+    display: none;
+  }
+
+  @media only screen and (max-width: $desktop) {
+    display: block;
+    margin: 24px 0;
+
+    .nav__icon-close {
+      display: flex;
+    }
+
+    .nav__title {
+      display: block;
+      padding: 0 0 24px 40px;
+      margin-bottom: 24px;
+      font-size: 32px;
+      line-height: 1;
+      font-weight: 900;
+      color: $heading-font-color;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  @media only screen and (max-width: $mobile) {
+    .nav__icon-close {
+      right: 30px;
+    }
+  }
+}
+
+.nav__list {
+
+  .nav__item {
+    display: inline-block;
+    margin: 0 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .nav__link {
+      position: relative;
+      padding-bottom: 10px;
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 800;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary-color;
+      }
+
+      &.active-link {
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -6px;
+          transform: translateX(-50%);
+          display: block;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: $primary-color;
+        }
+      }
+
+      &.cta-button {
+        display: inline-flex;
+        font-size: 16px;
+        padding: 16px 24px;
+      }
+    }
+
+    &.dropdown {
+      position: relative;
+
+      .arrow-down {
+        vertical-align: middle;
+      }
+
+      &:hover {
+        .dropdown-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: -32px;
+    transform: translateZ(0) scale(0.9);
+    backface-visibility: hidden;
+    z-index: 100;
+    width: 220px;
+    min-width: 220px;
+    display: block;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .25s ease;
+    border-radius: 8px;
+    box-shadow: 0px 20px 20px rgba($primary-color, 0.07);
+    background-color: $background-color-alt;
+
+    .nav__link {
+      display: flex;
+      white-space: nowrap;
+      padding: 8px 12px;
+      font-size: 15px;
+      border-radius: 4px;
+      will-change: transform;
+
+      &:hover {
+        background-color: rgba($primary-color, 0.07);
+      }
+
+      &.active-link {
+        color: $primary-color;
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  color: $text-color;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+
+  .nav__icon {
+    transition: $global-transition;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .nav__icon-menu {
+    display: none;
+  }
+
+  @media only screen and (max-width: $desktop) {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+
+    .nav__icon-menu {
+      display: block;
+      font-size: 32px;
+      line-height: 1;
+    }
+  }
+}
+
+.header__controls {
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: $desktop) {
+    margin-left: auto;
+  }
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  margin-left: 16px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-text);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+
+  &:hover {
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($primary-color, 0.35);
+    outline-offset: 3px;
+  }
+
+  i {
+    font-size: 20px;
+  }
+
+  @media only screen and (max-width: $desktop) {
+    margin: 0 12px 0 0;
+  }
+}

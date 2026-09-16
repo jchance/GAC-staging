@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="post-head">
+    {% if page.tags.size >= 1 %}
+      <div class="post-tags__box">
+        {% for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tag/{{ tag }}" class="post__tag">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <h1 class="post-title">{{ page.title }}</h1>
+  </div>
+</div>
+
+{% if page.image %}
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="post-image">
+        {% picture hero "{{ page.image | remove_first: '/' }}" --alt {{ page.title }} --img %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- begin post -->
+<div class="container">
+  <article class="post animate">
+
+    <div class="post__info">
+      {% assign author_id = page.author | default: site.data.settings.author.id | default: '' %}
+      {% assign author_record = site.data.authors[author_id] %}
+      {% assign author = author_record %}
+      {% if author_record.board_id %}
+        {% assign author = site.data.board | where: 'id', author_record.board_id | first %}
+      {% endif %}
+      {% if author_record %}
+        {% assign author_url = '/authors/' | relative_url | append: author_id %}
+      {% else %}
+        {% assign author = site.data.settings.author %}
+        {% assign author_url = '/about' | relative_url %}
+      {% endif %}
+      <div class="post__author">
+        <a href="{{ author_url }}" class="post__author-image">
+          <img src="{{ author.avatar | default: author.image | default: site.data.settings.author.avatar | relative_url }}" alt="{{ author.name | default: site.data.settings.author.name }}">
+        </a>
+        <div class="post__author-info">
+          <a href="{{ author_url }}" class="post__author-link">{{ author.name | default: site.data.settings.author.name }}</a>
+          <span class="post__date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="post__content">
+      {{ content }}
+    </div>
+
+    {% social_share %}
+
+    {% include post-navigation.html %}
+
+  </article>
+</div>
+<!-- end post -->
+
+{% include related-posts.html %}

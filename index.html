@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+{% include section-hero.html %}
+
+{% include section-sponsors.html %}
+
+<section class="section upcoming-events">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="section__info" style="margin-bottom: 30px;">
+          <div class="section__head">
+            <h2 class="section__title">Upcoming <span class="text-span">Events</span></h2>
+            <a class="section__link" href="{{ '/events' | relative_url }}">View all <i class="fa-duotone fa-solid fa-arrow-right"></i></a>
+          </div>
+          <p class="section__description" style="margin-top: 12px;">Stories, events, and opportunities from the Griffin Arts Council community.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      {% assign upcoming = site.events | sort: 'date' %}
+      {% for event in upcoming limit: 3 %}
+        <div class="col col-12">
+          <article class="event-card" style="border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; overflow: hidden;">
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div class="event-card__date" style="min-width: 88px; text-align: center; border-radius: 10px; padding: 0.75rem 0.5rem;">
+                <div class="event-card__month" style="font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;">{{ event.date | date: "%b" }}</div>
+                <div style="font-size: 2rem; font-weight: 700; line-height: 1; margin-top: 0.5rem;">{{ event.date | date: "%d" }}</div>
+              </div>
+              <div style="flex: 1;">
+                {% if event.badges %}
+                  <div style="margin-bottom: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    {% for badge_id in event.badges %}
+                      {% assign badge = site.data.badges[badge_id] %}
+                      {% if badge %}
+                        <span style="display: inline-block; padding: 0.3rem 0.6rem; border-radius: 999px; background: {{ badge.color }}; color: #fff; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;">{{ badge.title }}</span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                <h3 style="margin: 0 0 0.5rem; font-size: 1.5rem;">
+                  <a href="{{ event.url | relative_url }}" style="color: inherit; text-decoration: none;">{{ event.title }}</a>
+                </h3>
+                <p class="event-card__meta" style="margin: 0; font-size: 0.95rem;"><strong>{{ event.date | date: "%A, %B %-d" }}</strong> at {{ event.time }} • {{ event.location }}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% include section-blog.html %}

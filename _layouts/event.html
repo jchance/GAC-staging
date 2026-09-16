@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+{% assign map_address = page.location_address | default: page.location %}
+{% assign map_query = map_address | replace: ' ', '+' %}
+{% assign action_label = page.button_label | default: "Register" %}
+
+<div class="container">
+  <div class="page-head">
+    <h1 class="page-title">{{ page.title }}</h1>
+  </div>
+</div>
+
+<div class="container">
+  <article class="post animate">
+    <div class="post__content">
+      <div style="display: grid; grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.1fr); gap: 2rem; align-items: start;" class="event-layout">
+        <div style="padding-right: 0.5rem;">
+          {% if page.badges %}
+            <div style="margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              {% for badge_id in page.badges %}
+                {% assign badge = site.data.badges[badge_id] %}
+                {% if badge %}
+                  <span style="display: inline-block; padding: 0.45rem 0.8rem; border-radius: 999px; background: {{ badge.color }}; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;">{{ badge.title }}</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <p style="margin: 0 0 0.75rem;"><strong>Date:</strong> {{ page.date | date: "%A, %B %-d, %Y" }}</p>
+          <p style="margin: 0 0 0.75rem;"><strong>Time:</strong> {{ page.time }}</p>
+          <p style="margin: 0 0 1rem;">
+            <strong>Venue:</strong>
+            <a href="https://maps.google.com/?q={{ map_query }}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">{{ page.location }}</a>
+          </p>
+          <p style="margin: 0 0 1rem;"><strong>Category:</strong> {% for badge_id in page.badges %}{% assign badge = site.data.badges[badge_id] %}{{ badge.title }}{% if forloop.last == false %}, {% endif %}{% endfor %}</p>
+
+          {% if page.register_url %}
+            <p style="margin: 1rem 0 0;">
+              <a href="{{ page.register_url }}" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; background: #1d4d4f; color: #fff; padding: 0.9rem 1.1rem; border-radius: 999px; font-weight: 700; text-decoration: none; text-align: center; box-sizing: border-box;">
+                {{ action_label }} <i class="fa-duotone fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </p>
+          {% endif %}
+        </div>
+
+        <div>
+          <div class="event-map">
+            <iframe
+              width="100%"
+              height="100%"
+              style="border:0; display:block;"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q={{ map_query }}&output=embed">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2.5rem; width: 100%;">
+        {{ page.content }}
+      </div>
+    </div>
+  </article>
+</div>

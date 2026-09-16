@@ -1,0 +1,63 @@
+<!-- begin footer -->
+<footer class="footer">
+
+  {% assign cover_image = page.image | default: site.data.settings.cover__image %}
+  {% assign cover_alt = page.title | default: site.data.settings.title %}
+  {% if cover_image %}
+    <div class="footer-cover">
+      <div class="cover-image">
+        {% picture hero "{{ cover_image | remove_first: '/' }}" --alt {{ cover_alt }} --img %}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="container">
+    <div class="row footer__columns">
+
+      <div class="col col-6 col-d-12 footer__brand">
+        <a class="footer__logo-link" href="{{ site.baseurl }}/">
+          {% if site.data.settings.logo_footer %}
+            <img class="logo__image logo__image--light footer__logo" src="{{ site.baseurl }}{{ site.data.settings.logo_footer }}" alt="{{ site.title }}">
+            <img class="logo__image logo__image--dark footer__logo" src="{{ site.baseurl }}{{ site.data.settings.logo_footer_dark | default: site.data.settings.logo_dark }}" alt="" aria-hidden="true">
+          {% elsif site.data.settings.logo %}
+            <img class="logo__image logo__image--light footer__logo" src="{{ site.baseurl }}{{ site.data.settings.logo }}" alt="{{ site.title }}">
+            <img class="logo__image logo__image--dark footer__logo" src="{{ site.baseurl }}{{ site.data.settings.logo_dark }}" alt="" aria-hidden="true">
+          {% else %}
+            {{ site.data.settings.title }}
+          {% endif %}
+        </a>
+        <p class="footer__description">{{ site.data.settings.footer_description | default: site.data.settings.description }}</p>
+        {% include social-link.html %}
+      </div>
+
+      <div class="col col-3 col-d-6 col-m-12 footer__nav">
+        <div class="footer__heading">Menu</div>
+        <ul class="footer__list list-reset">
+          <li class="footer__item"><a href="{{ '/events' | relative_url }}" class="footer__link">Events</a></li>
+          <li class="footer__item"><a href="{{ '/blog/' | relative_url }}" class="footer__link">News</a></li>
+          <li class="footer__item"><a href="{{ '/sponsors' | relative_url }}" class="footer__link">Sponsors</a></li>
+          <li class="footer__item"><a href="{{ '/about' | relative_url }}" class="footer__link">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col col-3 col-d-6 col-m-12 footer__legal">
+        <div class="footer__heading">Company</div>
+        <ul class="footer__list list-reset">
+          <li class="footer__item"><a href="{{ '/contact' | relative_url }}" class="footer__link">Contact Us</a></li>
+          <li class="footer__item"><a href="{{ '/privacy-policy' | relative_url }}" class="footer__link">Privacy Policy</a></li>
+          <li class="footer__item"><a href="{{ '/terms-and-conditions' | relative_url }}" class="footer__link">Terms and Conditions</a></li>
+          <li class="footer__item"><a href="https://assets.griffinarts.org" class="footer__link" target="_blank" rel="noopener">Assets</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col col-12">
+        <div class="copyright">&copy; {{site.time | date: '%Y'}} <a href="{{ '/' | relative_url }}">Griffin Arts Council, Inc.</a> All rights reserved.</div>
+        <div class="copyright copyright--credit">Website by <a href="https://atomicvan.com" target="_blank" rel="noopener">Atomic Van</a>.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->

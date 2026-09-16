@@ -1,0 +1,23 @@
+- name: Visionary sponsorship available
+  tier: visionary
+  opportunity: true
+  message: Your business could be here.
+  description: Help expand access to the arts across Griffin and Spalding County.
+- name: Champion sponsorship available
+  tier: champion
+  opportunity: true
+  message: Your business could be here.
+  description: Put your brand behind accessible arts programs and community events.
+- name: Jay Daniel Photography
+  logo: /images/sponsors/jay-daniel-photography-logo.svg
+  url: https://jaydanielphotography.com
+  tier: community
+- name: Atomic Van
+  logo: /images/sponsors/atomic-van-logo.svg
+  url: https://atomicvan.com
+  tier: community
+- name: Community sponsorship available
+  tier: community
+  opportunity: true
+  message: Your business could be here.
+  description: Join local businesses investing in a more creative Griffin.

@@ -1,0 +1,49 @@
+{% assign actual_sponsors = site.data.sponsors | where_exp: "sponsor", "sponsor.opportunity != true" %}
+{% if actual_sponsors.size > 0 %}
+<section class="section sponsors" aria-labelledby="sponsors-title">
+  <div class="container">
+    <div class="sponsors__heading">
+      <div class="sponsors__title-row">
+        <h2 class="section__title" id="sponsors-title">Our <span class="text-span">Sponsors</span></h2>
+        <a class="sponsors__cta" href="{{ '/sponsors' | relative_url }}">
+          View all sponsors <i class="fa-duotone fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="sponsors__subhead">
+        <p class="sponsors__description">We are grateful to the local businesses investing in a more creative Griffin.</p>
+        {% if actual_sponsors.size > 5 %}
+          <div class="sponsors__controls" aria-label="Sponsor logo controls">
+            <button class="sponsors__control sponsors__control--previous" type="button" aria-label="View previous sponsors">
+              <i class="fa-duotone fa-solid fa-arrow-left" aria-hidden="true"></i>
+            </button>
+            <button class="sponsors__control sponsors__control--next" type="button" aria-label="View next sponsors">
+              <i class="fa-duotone fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="sponsors__scroller"{% if actual_sponsors.size > 5 %} data-sponsor-scroller data-sponsor-count="{{ actual_sponsors.size }}" tabindex="0"{% endif %} aria-label="Sponsor logos">
+      <ul class="sponsors__list{% if actual_sponsors.size <= 5 %} sponsors__list--static{% endif %}">
+        {% for sponsor in actual_sponsors %}
+          <li class="sponsors__item">
+            <a class="sponsors__link" href="{{ '/sponsors' | relative_url }}" aria-label="View all Griffin Arts Council sponsors">
+              <img class="sponsors__logo" src="{{ sponsor.logo | relative_url }}" alt="{{ sponsor.name }}">
+            </a>
+          </li>
+        {% endfor %}
+        {% if actual_sponsors.size > 5 %}
+          {% for sponsor in actual_sponsors %}
+            <li class="sponsors__item" aria-hidden="true">
+              <div class="sponsors__link">
+                <img class="sponsors__logo" src="{{ sponsor.logo | relative_url }}" alt="">
+              </div>
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endif %}

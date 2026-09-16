@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-environment="{{ jekyll.environment }}">
+
+{% include head.html %}
+
+<body class="page-{{ page.title | default: 'home' | slugify }}">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  {% if jekyll.environment == "production" and site.data.settings.google-analytics %}
+    {% include google-analytics.html %}
+  {% endif %}
+
+  {% assign cover_image = page.image | default: site.data.settings.cover__image %}
+  {% assign cover_alt = page.title | default: site.data.settings.title %}
+  {% if cover_image %}
+    <div class="top-cover">
+      <div class="cover-image">
+        {% picture hero "{{ cover_image | remove_first: '/' }}" --alt {{ cover_alt }} --img %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% include header.html %}
+
+  <!-- begin content -->
+  <main class="content animate" id="main-content" aria-label="Content">
+    {{ content }}
+  </main>
+  <!-- end content -->
+
+  {% unless page.url == '/contact' %}
+    {% include section-subscribe.html %}
+  {% endunless %}
+
+  <button class="top" type="button" aria-label="Back to top"><i class="fa-duotone fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+
+  {% include footer.html %}
+
+  {% if jekyll.environment == "production" and site.data.settings.google-analytics %}
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <p id="analytics-consent-title">We use Google Analytics to understand how visitors use this site. You can accept or decline analytics cookies.</p>
+      <div class="analytics-consent__actions">
+        <button class="button button--small" type="button" data-analytics-consent="granted">Accept analytics</button>
+        <button class="analytics-consent__decline" type="button" data-analytics-consent="denied">Decline</button>
+      </div>
+      <a href="{{ '/privacy-policy' | relative_url }}">Privacy Policy</a>
+    </aside>
+  {% endif %}
+
+  <script src="{{ site.baseurl }}/js/scripts.js"></script>
+  <script src="{{ site.baseurl }}/js/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+exhibition:
+  title: Exhibition
+  color: "#2BB3B1"
+networking:
+  title: Networking
+  color: "#1E65A3"
+fundraiser:
+  title: Fundraiser
+  color: "#5C9E6E"
+workshop:
+  title: Workshop
+  color: "#FFC857"
+community:
+  title: Community
+  color: "#5C9E6E"
+education:
+  title: Education
+  color: "#9B59B6"
+public-art:
+  title: Public Art
+  color: "#E8874A"
+art-popup:
+  title: Art Popup
+  color: "#FF7A59"
+art-show:
+  title: Art Show
+  color: "#2BB3B1"

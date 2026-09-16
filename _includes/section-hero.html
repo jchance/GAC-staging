@@ -1,0 +1,25 @@
+<!-- begin hero -->
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="hero__inner">
+
+          <div class="hero__left">
+            <p class="hero__eyebrow">Griffin Arts Council</p>
+            <h1 class="hero__title">{{ site.data.settings.hero.title | replace: ', GA', ', <span class="hero__state">GA</span>' }}</h1>
+            <p class="hero__description">{{ site.data.settings.hero.bio }}</p>
+          </div>
+
+          <div class="hero__right">
+            <div class="hero__image">
+              {% picture hero "{{ site.data.settings.hero.image | remove_first: '/' }}" --alt {{ site.data.settings.title }} --img %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end hero -->

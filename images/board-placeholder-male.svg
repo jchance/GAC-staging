@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">Generic male headshot placeholder</title>
+  <desc id="desc">Simple generic male head-and-shoulders avatar placeholder.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2BB3B1"/>
+      <stop offset="1" stop-color="#1E65A3"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0E2736"/>
+      <stop offset="1" stop-color="#1B4F63"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <circle cx="154" cy="142" r="96" fill="#F4C35F" opacity=".32"/>
+  <circle cx="660" cy="652" r="142" fill="#F15A24" opacity=".22"/>
+  <path fill="#FFFFFF" opacity=".2" d="M110 206c82-66 178-99 288-99 139 0 238 45 292 135v558H110z"/>
+  <path fill="#E6B391" d="M345 486h110v56c0 30-25 55-55 55s-55-25-55-55z"/>
+  <path fill="url(#shirt)" d="M162 800c30-159 120-248 238-248s208 89 238 248z"/>
+  <circle cx="400" cy="391" r="122" fill="#F0C3A6"/>
+  <path fill="#102C3C" d="M280 385c0-95 47-164 121-164 80 0 128 62 128 157 0 24-4 45-11 65-33-11-66-35-98-72-42 25-89 39-140 42z"/>
+  <circle cx="358" cy="400" r="9" fill="#102C3C"/>
+  <circle cx="443" cy="400" r="9" fill="#102C3C"/>
+  <path fill="none" stroke="#B97A5F" stroke-linecap="round" stroke-width="10" d="M374 453c18 14 36 14 54 0"/>
+</svg>

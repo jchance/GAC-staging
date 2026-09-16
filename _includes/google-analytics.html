@@ -1,0 +1,23 @@
+<script>
+  (function () {
+    var measurementId = '{{ site.data.settings.google-analytics }}';
+    var storageKey = 'gac-analytics-consent';
+
+    window.enableGoogleAnalytics = function () {
+      if (window.googleAnalyticsEnabled) return;
+      window.googleAnalyticsEnabled = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', measurementId);
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+      document.head.appendChild(script);
+    };
+
+    try {
+      if (localStorage.getItem(storageKey) === 'granted') window.enableGoogleAnalytics();
+    } catch (error) {}
+  }());
+</script>

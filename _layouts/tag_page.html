@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="page-head">
+        <div class="tag">
+          <h1 class="page-title">{{ page.tag }}</h1>
+          <div class="tag-meta">
+            <div class="tag-count{% if page.posts.size > 9 %} count-padding-small{% endif %}">
+              <div class="tag-number">{{ page.posts.size }}</div>
+            </div>
+            <span>{% if page.posts.size == 1 %}Item{% else %}Items{% endif %}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="contaniner__inner animate">
+        <div class="row">
+          {% for post in page.posts %}
+            {% include article-content.html %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

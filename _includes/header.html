@@ -1,0 +1,70 @@
+<!-- begin header -->
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="header__inner">
+
+        <div class="logo">
+          <a class="logo__link" href="{{ site.baseurl }}/">
+          {%if site.data.settings.logo %}
+            <img class="logo__image logo__image--light" src="{{ site.baseurl }}{{ site.data.settings.logo }}" alt="{{ site.title }}">
+            <img class="logo__image logo__image--dark" src="{{ site.baseurl }}{{ site.data.settings.logo_dark }}" alt="" aria-hidden="true">
+          {% else %}
+            {{ site.data.settings.title }}
+          {% endif %}
+          </a>
+        </div>
+
+        <nav class="main-nav" id="primary-navigation" aria-label="Primary navigation">
+          <div class="main-nav__box">
+
+            <button class="nav__icon-close" type="button" aria-label="Close navigation">
+              <i class="fa-duotone fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+            <div class="nav__title">Menu</div>
+
+            <ul class="nav__list list-reset">
+
+            {% for item in site.data.settings.menu__settings.menu__items %}
+              {% if item.submenu %}
+              <li class="nav__item dropdown">
+                <span class="nav__link dropdown-toggle">{{ item.title }} <i class="fa-duotone fa-solid fa-chevron-down arrow-down"></i></span>
+                <div class="dropdown-menu">
+                  {% for submenu-item in item.submenu %}
+                    <a href="{{ submenu-item.url }}" class="nav__link{% if page.url == submenu-item.url %} active-link{% endif %}">{{submenu-item.title}}</a>
+                  {% endfor %}
+                </div>
+              </li>
+
+              {% else %}
+              <li class="nav__item">
+                <a href="{{ item.url | relative_url }}" class="nav__link{% if page.url == item.url %} active-link{% endif %}">{{ item.title }}</a>
+              </li>
+              {% endif %}
+            {% endfor %}
+
+            <li class="nav__item">
+              <a href="{{ '/membership' | relative_url }}" class="nav__link cta-button button button--small">{{ site.data.settings.cta__button__text }}</a>
+            </li>
+
+            </ul>
+          </div>
+        </nav>
+
+        <div class="header__controls">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Theme: System" title="Theme: System">
+            <span class="theme-toggle__icon" data-theme-icon aria-hidden="true"><i class="fa-duotone fa-solid fa-circle-half-stroke"></i></span>
+            <span class="screen-reader-text" data-theme-label>System theme</span>
+          </button>
+
+          <button class="nav-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
+            <i class="nav__icon nav__icon-menu fa-whiteboard fa-semibold fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->

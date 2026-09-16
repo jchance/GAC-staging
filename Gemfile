@@ -1,0 +1,13 @@
+source 'https://rubygems.org'
+gem "bundler"
+gem "jekyll"
+gem "jekyll-paginate"
+gem "jekyll-tagging"
+gem "jekyll-sitemap"
+gem "jekyll-feed"
+gem "jekyll-redirect-from"
+gem "jekyll-archives"
+gem "jekyll-include-cache"
+gem "jekyll_picture_tag", "~> 2.1"
+gem "jekyll-llms-generator", "~> 0.3"
+gem "jekyll-social-share", "~> 0.3"

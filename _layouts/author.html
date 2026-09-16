@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+{% assign author_record = site.data.authors[page.author_id] %}
+{% assign author = author_record %}
+{% if author_record.board_id %}
+  {% assign author = site.data.board | where: 'id', author_record.board_id | first %}
+{% endif %}
+
+<div class="container">
+  <div class="page-head">
+    <h1 class="page-title">{{ author.name }}</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col col-4 col-d-12">
+      <div class="author-profile">
+        {% assign author_avatar = author.avatar | default: author.image %}
+        {% if author_avatar %}
+          <img src="{{ author_avatar | relative_url }}" alt="{{ author.name }}" style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+        {% endif %}
+        {% assign author_title = author.title | default: author.role %}
+        {% if author_title %}
+          <p><strong>{{ author_title }}</strong></p>
+        {% endif %}
+        {% if author.bio %}
+          <p>{{ author.bio }}</p>
+        {% endif %}
+        {% if author_record.socials %}
+          <ul class="social__list list-reset">
+            {% for social in author_record.socials %}
+              <li class="social__item" style="display:inline-block; margin-right: 0.5rem;">
+                <a href="{{ social.url }}" target="_blank" rel="noopener" aria-label="{{ social.platform }}" style="font-size:1.25rem;">
+                  {% case social.platform %}
+                    {% when 'facebook' %}<i class="fa-brands fa-facebook"></i>
+                    {% when 'instagram' %}<i class="fa-brands fa-instagram"></i>
+                    {% when 'linkedin' %}<i class="fa-brands fa-linkedin"></i>
+                    {% when 'x' %}<i class="fa-brands fa-x-twitter"></i>
+                    {% else %}<i class="fa-duotone fa-solid fa-link"></i>
+                  {% endcase %}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col col-8 col-d-12">
+      <h2>Posts by {{ author.name }}</h2>
+      {% assign visible_posts = site.posts | where_exp: 'post', 'post.date <= site.time' %}
+      {% assign author_posts = visible_posts | where: 'author', page.author_id %}
+      {% if author_posts.size > 0 %}
+        <div class="row">
+          {% for post in author_posts %}
+            <div class="col col-12" style="margin-bottom: 1.5rem;">
+              <article class="article__inner content-card" style="display: flex; gap: 1.25rem; align-items: flex-start; border-radius: 12px; padding: 1rem;">
+                {% if post.image %}
+                  <div class="image-wrap" style="flex: 0 0 220px;">
+                    <a class="article__image" href="{{ post.url | relative_url }}">
+                      {% picture "{{ post.image | remove_first: '/' }}" --alt {{ post.title }} --img style="width: 220px; height: 150px; object-fit: cover; border-radius: 10px;" %}
+                    </a>
+                  </div>
+                {% endif %}
+                <div class="article__content" style="flex: 1; min-width: 0;">
+                  <h3 class="article__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                  <p class="article__excerpt">{{ post.content | strip_html | truncate: 180 }}</p>
+                  <span class="article__date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></span>
+                </div>
+              </article>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>No posts yet.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>

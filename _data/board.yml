@@ -1,0 +1,59 @@
+- id: jason-chance
+  name: Jason Chance
+  role: Chairperson
+  image: /images/board-placeholder-male-dark.svg
+  image_alt: Generic male headshot placeholder with darker skin tone
+  interests:
+    - Pottery
+    - Illustration
+    - Woodworking
+    - Web design
+  bio: Jason Chance has been active in downtown Griffin for nearly a decade. He currently serves as Chairperson of the Griffin Main Street Board, Vice Chair of the Griffin Downtown Development Authority, and is appointed to the Griffin-Spalding Business Tourism Association. He owns a web development company downtown and has made Griffin and Spalding County home with his son for 17 years.
+- id: sam-ramsey
+  name: Sam Ramsey
+  role: Vice-Chair
+  image: /images/board-placeholder-male.svg
+  image_alt: Generic male headshot placeholder
+  bio: Bio coming soon.
+- id: jessica-gregory
+  name: Jessica Gregory
+  role: Secretary
+  image: /images/board-placeholder-female.svg
+  image_alt: Generic female headshot placeholder
+  bio: Bio coming soon.
+- id: benjamin-cook
+  name: Benjamin Cook
+  role: Treasurer
+  image: /images/board-placeholder-male.svg
+  image_alt: Generic male headshot placeholder
+  bio: Bio coming soon.
+- id: brian-miller
+  name: Brian Miller
+  role: Board Member
+  image: /images/board-placeholder-male-dark.svg
+  image_alt: Generic male headshot placeholder with darker skin tone
+  bio: Bio coming soon.
+- id: cody-walraven
+  name: Cody Walraven
+  role: Board Member
+  image: /images/board-placeholder-female.svg
+  image_alt: Generic female headshot placeholder
+  bio: Bio coming soon.
+- id: david-fountain
+  name: David Fountain
+  role: Board Member
+  image: /images/board-placeholder-male.svg
+  image_alt: Generic male headshot placeholder
+  bio: Bio coming soon.
+- id: jay-daniel
+  name: Jay Daniel
+  role: Board Member
+  image: /images/board-placeholder-male-dark.svg
+  image_alt: Generic male headshot placeholder with darker skin tone
+  bio: Bio coming soon.
+- id: kyleigh-smith
+  name: Kyleigh Smith
+  role: Board Member
+  image: /images/board-placeholder-female.svg
+  image_alt: Generic female headshot placeholder
+  bio: Bio coming soon.

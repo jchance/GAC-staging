@@ -1,0 +1,61 @@
+media_queries:
+  mobile: 'max-width: 600px'
+  tablet: 'max-width: 1024px'
+  desktop: 'max-width: 1400px'
+
+presets:
+  default:
+    widths: [320, 640, 960, 1280]
+    formats: [webp, original]
+    sizes:
+      mobile: '(max-width: 600px) 100vw'
+      tablet: '(max-width: 1024px) 80vw'
+      desktop: '1200px'
+    size: '100vw'
+    fallback_width: 1280
+    format_quality:
+      webp: 75
+      original: 85
+
+  hero:
+    widths: [320, 480, 640, 960, 1280]
+    formats: [webp, original]
+    sizes:
+      mobile: '(max-width: 600px) 100vw'
+      tablet: '(max-width: 1024px) 85vw'
+      desktop: '1200px'
+    size: '100vw'
+    fallback_width: 1280
+    format_quality:
+      webp: 75
+      original: 85
+
+  card:
+    widths: [320, 480, 640, 800]
+    formats: [webp, original]
+    sizes:
+      mobile: '(max-width: 600px) 100vw'
+      tablet: '(max-width: 1024px) 50vw'
+      desktop: '420px'
+    size: '100vw'
+    fallback_width: 640
+    format_quality:
+      webp: 75
+      original: 80
+    attributes:
+      img: 'loading="lazy" decoding="async"'
+
+  avatar:
+    widths: [80, 120, 180]
+    formats: [webp, original]
+    sizes:
+      mobile: '120px'
+      tablet: '120px'
+      desktop: '180px'
+    size: '180px'
+    fallback_width: 180
+    format_quality:
+      webp: 70
+      original: 80
+    attributes:
+      img: 'loading="lazy" decoding="async"'

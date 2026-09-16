@@ -1,0 +1,113 @@
+#-------------------------------
+# Site Settings
+
+title: Griffin Arts Council
+logo: '/images/logos/griffin-arts-council-logo.svg'
+logo_dark: '/images/logos/griffin-arts-council-logo-white.svg'
+logo_footer: '/images/logos/griffin-arts-council-logo-stacked.svg'
+logo_footer_dark: '/images/logos/griffin-arts-council-logo-stacked-white.svg'
+description: Griffin Arts Council empowers creatives through transformative arts education, modern programming, and an inclusive arts community in Griffin, Georgia.
+footer_description: Griffin Arts Council, Inc. is dedicated to championing the arts in Griffin, Georgia through education, programming, and community engagement.
+
+menu__settings:
+  menu__items:
+    - title: 'Events'
+      url: '/events'
+    - title: 'News'
+      url: '/blog/'
+    - title: 'Sponsors'
+      url: '/sponsors'
+    - title: 'About'
+      url: '/about'
+
+# Call to action button
+cta__button__text: Become a Member
+
+# Add global cover image (This field adds a background to the top and bottom of the site.)
+cover__image: '/images/artwork-fluid-flow.jpg'
+
+
+#-------------------------------
+# Hero Settings
+
+hero:
+  title: Igniting creativity. Championing emerging artists.
+  bio: We empower creatives through transformative arts education, modern programming, and an inclusive arts community.
+  image: '/images/artwork-paintbrushes-web.jpg'
+  button__text: Explore our programs
+
+# Fallback Author Settings
+author:
+  name: Griffin Arts
+  avatar: '/images/logos/griffin-arts-council-logo-stacked.svg'
+
+
+#-------------------------------
+# Testimonials Section
+
+testimonial__title: Community <span class="text-span">Voices</span>
+
+testimonial-items:
+  - name: "Evelyn R."
+    image: "/images/client-1.jpg"
+    designation : "Community Partner"
+    content : "Griffin Arts Council brings people together in ways that make the arts feel welcoming, local, and genuinely alive."
+
+  - name: "Marcus T."
+    image: "/images/client-2.jpg"
+    designation : "Artist Mentor"
+    content : "The programming creates real opportunity for young artists and helps build lasting creative confidence in our neighbors."
+
+  - name: "Leah S."
+    image: "/images/client-3.jpg"
+    designation : "Volunteer"
+    content : "This work is rooted in access, collaboration, and joy. It gives the community a place to gather, create, and belong."
+
+  - name: "Nora P."
+    image: "/images/client-4.jpg"
+    designation : "Program Participant"
+    content : "From workshops to public events, every program feels rooted in creativity, care, and connection."
+
+
+#-------------------------------
+# Blog Section
+
+blog__settings:
+  blog__title: Latest <span class="text-span">News</span>
+  blog__description: Stories, events, and opportunities from the Griffin Arts Council community.
+
+
+#-------------------------------
+# Contact Settings
+
+contact__settings:
+  contact__form_url: https://formspree.io/f/mkjgnwgd
+  contact__title: <span class="text-span">Get</span> in touch
+  contact__description: We’d love to hear from artists, partners, volunteers, and neighbors who want to support the arts in our community.
+
+# NOTE
+# A contact form can be connected to a free service such as Formspree when you are ready to accept submissions.
+
+
+#-------------------------------
+# Newsletter Settings
+mailchimp__settings:
+  mailchimp__title: Stay <span class="text-span">Connected</span>
+  mailchimp__text: "Get updates on upcoming events, artist opportunities, and community stories."
+  mailchimp__identifier:
+  mailchimp__button__text: Subscribe
+
+
+#-------------------------------
+#-------------------------------
+# Google Analytics
+google-analytics: G-Z570FHHNVE
+
+
+#-------------------------------
+# Footer Settings
+# Social Links
+# Only keep the links we want to actively maintain.
+social:
+- {icon: "fa-brands fa-facebook", link: "https://www.facebook.com/profile.php?id=61592483842141"}
+- {icon: "fa-brands fa-instagram", link: "https://www.instagram.com/griffinartscouncil/"}

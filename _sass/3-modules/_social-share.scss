@@ -1,0 +1,118 @@
+// jekyll-social-share — copy to your site's CSS/SCSS directory and @import or @use it.
+
+.social-share {
+  margin: 2.5rem 0 0;
+  padding-top: 2rem;
+  border-top: 1px solid $border-color;
+
+  &__label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ss-label-color, #888);
+    white-space: nowrap;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    width: auto;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    width: 42px;
+    height: 42px;
+    min-height: 0;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid currentColor;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.2;
+    transition: background-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: #fff !important;
+      opacity: 1;
+    }
+  }
+
+  &__icon svg {
+    width: 1.725em;
+    height: 1.725em;
+    fill: currentColor;
+    display: block;
+  }
+
+  // Per-service brand colors — override via CSS custom properties
+  &__item--bluesky    .social-share__link { color: var(--ss-bluesky,    #0085ff); &:hover, &:focus-visible { background: var(--ss-bluesky,    #0085ff); } }
+  &__item--mastodon   .social-share__link { color: var(--ss-mastodon,   #6364ff); &:hover, &:focus-visible { background: var(--ss-mastodon,   #6364ff); } }
+  &__item--facebook   .social-share__link { color: var(--ss-facebook,   #1877f2); &:hover, &:focus-visible { background: var(--ss-facebook,   #1877f2); } }
+  &__item--reddit     .social-share__link { color: var(--ss-reddit,     #ff4500); &:hover, &:focus-visible { background: var(--ss-reddit,     #ff4500); } }
+  &__item--linkedin   .social-share__link { color: var(--ss-linkedin,   #0a66c2); &:hover, &:focus-visible { background: var(--ss-linkedin,   #0a66c2); } }
+  &__item--x          .social-share__link { color: var(--ss-x,          #111);    &:hover, &:focus-visible { background: var(--ss-x,          #111);    } }
+  &__item--threads    .social-share__link { color: var(--ss-threads,    #111);    &:hover, &:focus-visible { background: var(--ss-threads,    #111);    } }
+  &__item--email      .social-share__link { color: var(--ss-email,      #666);    &:hover, &:focus-visible { background: var(--ss-email,      #666);    } }
+  &__item--copy       .social-share__link { color: var(--ss-copy,       #888);    &:hover, &:focus-visible { background: var(--ss-copy,       #888);    } }
+  &__item--whatsapp   .social-share__link { color: var(--ss-whatsapp,   #25d366); &:hover, &:focus-visible { background: var(--ss-whatsapp,   #25d366); } }
+  &__item--telegram   .social-share__link { color: var(--ss-telegram,   #0088cc); &:hover, &:focus-visible { background: var(--ss-telegram,   #0088cc); } }
+  &__item--hackernews .social-share__link { color: var(--ss-hackernews, #ff6600); &:hover, &:focus-visible { background: var(--ss-hackernews, #ff6600); } }
+  &__item--pinterest  .social-share__link { color: var(--ss-pinterest,  #e60023); &:hover, &:focus-visible { background: var(--ss-pinterest,  #e60023); } }
+  &__item--pocket     .social-share__link { color: var(--ss-pocket,     #ef4056); &:hover, &:focus-visible { background: var(--ss-pocket,     #ef4056); } }
+  &__item--tumblr     .social-share__link { color: var(--ss-tumblr,     #36465d); &:hover, &:focus-visible { background: var(--ss-tumblr,     #36465d); } }
+  &__item--flipboard  .social-share__link { color: var(--ss-flipboard,  #e12828); &:hover, &:focus-visible { background: var(--ss-flipboard,  #e12828); } }
+  &__item--line       .social-share__link { color: var(--ss-line,       #00b900); &:hover, &:focus-visible { background: var(--ss-line,       #00b900); } }
+  &__item--print      .social-share__link { color: var(--ss-print,      #666);    &:hover, &:focus-visible { background: var(--ss-print,      #666);    } }
+
+  &__copy.social-share__copy--copied {
+    color: var(--ss-copied, #2d7a2d);
+    border-color: var(--ss-copied, #2d7a2d);
+    background: var(--ss-copied, #2d7a2d);
+    color: #fff;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .social-share__list {
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .social-share {
+    align-items: flex-start;
+    flex-direction: column;
+
+    &__list {
+      max-width: 242px;
+    }
+  }
+}
