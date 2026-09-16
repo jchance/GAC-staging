@@ -36,7 +36,7 @@
       {% assign author = author | default: site.data.settings.author %}
       <div class="article__meta">
         <a href="{% if author_id != '' %}{{ '/authors/' | relative_url }}{{ author_id }}{% else %}{{ '/about/' | relative_url }}{% endif %}" class="article__author-image">
-          <img src="{{ author.avatar | default: author.image | default: site.data.settings.author.avatar }}" alt="{{ author.name | default: site.data.settings.author.name }}">
+          <img src="{{ author.avatar | default: author.image | default: site.data.settings.author.avatar | relative_url }}" alt="{{ author.name | default: site.data.settings.author.name }}">
         </a>
         <div class="article-info">
           <a href="{% if author_id != '' %}{{ '/authors/' | relative_url }}{{ author_id }}{% else %}{{ '/about/' | relative_url }}{% endif %}" class="article__author-link">{{ author.name | default: site.data.settings.author.name }}</a>

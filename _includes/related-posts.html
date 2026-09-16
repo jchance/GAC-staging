@@ -94,7 +94,7 @@
                 {% endif %}
                 <div class="article__meta">
                   <a href="{{ related_author_url }}" class="article__author-image">
-                    <img src="{{ related_author.avatar | default: related_author.image | default: site.data.settings.author.avatar }}" alt="{{ related_author.name | default: site.data.settings.author.name }}">
+                    <img src="{{ related_author.avatar | default: related_author.image | default: site.data.settings.author.avatar | relative_url }}" alt="{{ related_author.name | default: site.data.settings.author.name }}">
                   </a>
                   <div class="article-info">
                     <a href="{{ related_author_url }}" class="article__author-link">{{ related_author.name | default: site.data.settings.author.name }}</a>
