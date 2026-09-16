@@ -5,8 +5,20 @@
 }
 
 .subscribe__inner {
-  max-width: 580px;
+  max-width: 900px;
   margin: 0 auto;
+}
+
+.subscribe__widget {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  givebutter-widget {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
 }
 
 #beehiiv-subscribe-form {
@@ -16,7 +28,7 @@
 }
 
 .subscribe__info {
-  margin-bottom: 40px;
+  margin-bottom: 0;
   text-align: center;
 
   .subscribe__title {
@@ -27,14 +39,6 @@
     font-weight: 900;
   }
 
-  .subscribe__subtitle {
-    margin: 0 auto;
-    max-width: 430px;
-    font-size: 28px;
-    font-weight: 800;
-    line-height: 1.2;
-  }
-
   @media only screen and (max-width: $mobile) {
     .subscribe__title {
       font-size: 36px;
@@ -43,10 +47,6 @@
         top: -64%;
         left: -11%;
       }
-    }
-
-    .subscribe__subtitle {
-      font-size: 20px;
     }
   }
 
@@ -88,4 +88,3 @@
     }
   }
 }
-
