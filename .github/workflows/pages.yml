@@ -30,8 +30,8 @@ jobs:
           ruby-version: "3.2"
           bundler-cache: true
 
-      - name: Install image-processing dependency
-        run: sudo apt-get update && sudo apt-get install --yes libvips
+      - name: Install image-processing dependencies
+        run: sudo apt-get update && sudo apt-get install --yes libvips-dev libvips-tools imagemagick
 
       - name: Build site
         run: bundle exec jekyll build
