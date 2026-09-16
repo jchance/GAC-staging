@@ -20,15 +20,13 @@ permalink: /membership/
         <p>Provide sustaining individual support and receive recognition among the patrons helping our programs grow.</p>
       </div>
     </div>
-    <div class="col col-4 col-md-12">
-      <div class="card content-card" style="border-radius: 18px; padding: 1.5rem; margin-bottom: 1.5rem;">
-        <h3 style="margin-top: 0;">Business &amp; Partner Membership</h3>
-        <p>Collaborate with the council to bring arts education, cultural programming, and neighborhood connection to broader audiences.</p>
-      </div>
-    </div>
   </div>
 
-  <p>Membership benefits include event updates, community access, volunteer opportunities, and invitations to local arts initiatives.</p>
+  <p>Membership benefits will include event updates, community access, volunteer opportunities, and invitations to local arts initiatives.</p>
+
+  <div class="patrons__empty">
+    <p>Memberships will be available soon. We look forward to welcoming supporters who want to help sustain arts education, programming, and creative opportunity in Griffin.</p>
+  </div>
 
   <section class="patrons" aria-labelledby="patrons-title">
     <div class="patrons__heading">
@@ -45,7 +43,6 @@ permalink: /membership/
     {% else %}
       <div class="patrons__empty">
         <p>Patron recognition will be added as sustaining memberships are confirmed.</p>
-        <a href="{{ '/contact' | relative_url }}">Ask about patron membership <i class="fa-duotone fa-solid fa-arrow-right" aria-hidden="true"></i></a>
       </div>
     {% endif %}
   </section>
