@@ -22,10 +22,14 @@ permalink: /membership/
     </div>
   </div>
 
+  <p style="text-align: center;">
+    <a class="button button--middle" href="https://givebutter.com/gac-membership-8j3hum" target="_blank" rel="noopener">Choose your membership</a>
+  </p>
+
   <p>Membership benefits will include event updates, community access, volunteer opportunities, and invitations to local arts initiatives.</p>
 
   <div class="patrons__empty">
-    <p>Memberships will be available soon. We look forward to welcoming supporters who want to help sustain arts education, programming, and creative opportunity in Griffin.</p>
+    <p>Student, Member, and Patron memberships are now available. Choose the level that fits how you would like to support arts education, programming, and creative opportunity in Griffin.</p>
   </div>
 
   <section class="patrons" aria-labelledby="patrons-title">
