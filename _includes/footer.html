@@ -12,6 +12,10 @@
   {% endif %}
 
   <div class="container">
+    {% if page.url == '/' %}
+      {% include section-community-partners.html %}
+    {% endif %}
+
     <div class="row footer__columns">
 
       <div class="col col-6 col-d-12 footer__brand">

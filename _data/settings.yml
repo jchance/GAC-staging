@@ -15,8 +15,15 @@ menu__settings:
       url: '/events'
     - title: 'News'
       url: '/blog/'
-    - title: 'Sponsors'
+    - title: 'Supporters'
       url: '/sponsors'
+      submenu:
+        - title: 'Corporate Sponsors'
+          url: '/sponsors'
+        - title: 'Community Partners'
+          url: '/community-partners'
+        - title: 'Patrons'
+          url: '/patrons'
     - title: 'About'
       url: '/about'
 

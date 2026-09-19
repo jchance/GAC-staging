@@ -1,3 +1,19 @@
+- name: Griffin Coffee Co.
+  tier: champion
+  logo: /images/sponsors/mock-griffin-coffee-co.svg
+  url: https://example.com/griffin-coffee-co
+- name: Broad Street Books
+  tier: champion
+  logo: /images/sponsors/mock-broad-street-books.svg
+  url: https://example.com/broad-street-books
+- name: Pine & Poplar Studio
+  tier: community
+  logo: /images/sponsors/mock-pine-poplar-studio.svg
+  url: https://example.com/pine-poplar-studio
+- name: Crescent Theater Guild
+  tier: community
+  logo: /images/sponsors/mock-crescent-theater-guild.svg
+  url: https://example.com/crescent-theater-guild
 - name: Visionary sponsorship available
   tier: visionary
   opportunity: true
@@ -8,14 +24,6 @@
   opportunity: true
   message: Your business could be here.
   description: Put your brand behind accessible arts programs and community events.
-- name: Jay Daniel Photography
-  logo: /images/sponsors/jay-daniel-photography-logo.svg
-  url: https://jaydanielphotography.com
-  tier: community
-- name: Atomic Van
-  logo: /images/sponsors/atomic-van-logo.svg
-  url: https://atomicvan.com
-  tier: community
 - name: Community sponsorship available
   tier: community
   opportunity: true

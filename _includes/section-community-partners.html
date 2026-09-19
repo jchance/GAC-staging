@@ -1,0 +1,14 @@
+{% assign community_partners = site.data.community_partners | sort: "name" %}
+{% if community_partners.size > 0 %}
+<div class="home-partners" aria-label="Community partners">
+  <a class="home-partners__link" href="{{ '/community-partners' | relative_url }}" aria-label="Meet our community partners">
+    <ul class="home-partners__list">
+      {% for partner in community_partners %}
+        <li>
+          <img src="{{ partner.logo | relative_url }}" alt="{{ partner.name }}">
+        </li>
+      {% endfor %}
+    </ul>
+  </a>
+</div>
+{% endif %}

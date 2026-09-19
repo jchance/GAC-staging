@@ -129,7 +129,7 @@
 }
 
 .sponsors__item {
-  flex: 0 0 calc((100% - 64px) / 5);
+  flex: 0 0 calc((100% - 32px) / 3);
   min-width: 0;
   scroll-snap-align: start;
 }
@@ -138,8 +138,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 132px;
-  padding: 24px;
+  height: 170px;
+  padding: 32px;
   border: 1px solid var(--color-border);
   border-radius: 12px;
   background: var(--color-logo-plate);
@@ -148,20 +148,20 @@
 .sponsors__logo {
   display: block;
   width: 100%;
-  max-width: 180px;
-  height: 84px;
+  max-width: 240px;
+  height: 112px;
   object-fit: contain;
 }
 
 @media only screen and (max-width: $desktop) {
   .sponsors__item {
-    flex-basis: calc((100% - 48px) / 4);
+    flex-basis: calc((100% - 32px) / 3);
   }
 }
 
 @media only screen and (max-width: $tablet) {
   .sponsors__item {
-    flex-basis: calc((100% - 32px) / 3);
+    flex-basis: calc((100% - 16px) / 2);
   }
 }
 
@@ -197,16 +197,16 @@
   }
 
   .sponsors__item {
-    flex-basis: calc((100% - 16px) / 2);
+    flex-basis: 82%;
   }
 
   .sponsors__link {
-    height: 112px;
-    padding: 18px;
+    height: 132px;
+    padding: 22px;
   }
 
   .sponsors__logo {
-    height: 72px;
+    height: 84px;
   }
 }
 

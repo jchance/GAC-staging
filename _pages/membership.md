@@ -32,22 +32,7 @@ permalink: /membership/
     <p>Student, Member, and Patron memberships are now available. Choose the level that fits how you would like to support arts education, programming, and creative opportunity in Griffin.</p>
   </div>
 
-  <section class="patrons" aria-labelledby="patrons-title">
-    <div class="patrons__heading">
-      <h2 id="patrons-title">Our Patrons</h2>
-      <p>Patrons are sustaining members whose individual generosity provides a strong foundation for the Council's work.</p>
-    </div>
-
-    {% if site.data.patrons and site.data.patrons.size > 0 %}
-      <ul class="patrons__list">
-        {% for patron in site.data.patrons %}
-          <li>{{ patron.name }}</li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <div class="patrons__empty">
-        <p>Patron recognition will be added as sustaining memberships are confirmed.</p>
-      </div>
-    {% endif %}
-  </section>
+  <p style="text-align: center;">
+    <a href="{{ '/patrons' | relative_url }}">View our patrons <i class="fa-duotone fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </p>
 </div>
