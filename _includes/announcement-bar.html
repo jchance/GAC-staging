@@ -1,0 +1,17 @@
+{% assign upcoming_events = site.events | where_exp: "event", "event.date >= site.time" | sort: "date" %}
+{% assign next_event = upcoming_events | first %}
+
+{% if next_event %}
+  <aside class="announcement-bar" aria-label="Upcoming event">
+    <div class="container">
+      <a class="announcement-bar__link" href="{{ next_event.url | relative_url }}">
+        <span class="announcement-bar__label">Next up</span>
+        <span class="announcement-bar__title">{{ next_event.title }}</span>
+        <span class="announcement-bar__details">
+          {{ next_event.date | date: "%A, %B %-d" }}{% if next_event.time %} · {{ next_event.time }}{% endif %}
+        </span>
+        <span class="announcement-bar__action">View event <i class="fa-duotone fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+    </div>
+  </aside>
+{% endif %}
